@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
-from internal.client.database import Base
+from .database import Base
 
 class Camera(Base):
     __tablename__ = "cameras"

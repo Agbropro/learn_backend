@@ -1,8 +1,8 @@
 import sys
 import os 
 
-from internal.client.database import engine, Base, SessionLocal
-from internal.client.models import Camera, Detection
+from .internal.client.database import engine, Base, SessionLocal
+from .internal.client.models import Camera, Detection
 
 def main():
     print("--- 1. CREATING DATABASE TABLES ---")
@@ -14,10 +14,10 @@ def main():
     session = SessionLocal()
 
     # Create a Camera
-    cam_1 = Camera(location="Lobby", ip_address="192.168.1.100")
+    cam_1 = Camera(location="Jail", ip_address="192.168.1.101")
     
     # Create a Detection linked to that Camera (using append magic)
-    det_1 = Detection(label="Thief", confidence=0.99)
+    det_1 = Detection(label="Prisoner", confidence=0.5)
     cam_1.detections.append(det_1)
 
     # Add to session and Save
@@ -27,7 +27,7 @@ def main():
 
     print("--- 3. READING DATA ---")
     # Fetch the camera back
-    saved_cam = session.query(Camera).filter_by(location="Lobby").first()
+    saved_cam = session.query(Camera).filter_by(location="Jail").first()
     
     print(f"Found Camera: {saved_cam.location}")
     print(f"Camera IP: {saved_cam.ip_address}")
