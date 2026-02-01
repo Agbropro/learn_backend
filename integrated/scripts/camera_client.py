@@ -9,8 +9,8 @@ def register_camera():
     print("----- REGISTERING CAMERA -----")
 
     payload = {
-        "location": "Goy Chamber",
-        "ip_address": "192.168.1.153"
+        "location": "Backend Room",
+        "ip_address": "192.168.1.155"
     }
     try:
         response = requests.post(f"{SERVER_URL}/cameras", json=payload)

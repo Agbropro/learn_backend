@@ -1,0 +1,13 @@
+version: '3.8' #docker compose version
+
+services:
+    #service name
+    api-services:
+        #build from current directory
+        build: .
+        #map port 8000 from laptop(left) to container(right)
+        ports:
+            - "8000:8000"
+        #Map database file so data persists even if you restart Docker
+        volumes:
+            - ./ai_data.db:/app/ai_data.db

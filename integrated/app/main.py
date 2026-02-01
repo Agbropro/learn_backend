@@ -2,8 +2,8 @@ import sys
 import os
 
 from fastapi import FastAPI
-from ..internal.client.database import Base, engine
-from ..internal.delivery.routes import router
+from internal.client.database import Base, engine
+from internal.delivery.routes import router
 
 Base.metadata.create_all(bind=engine)
 
